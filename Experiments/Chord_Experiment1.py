@@ -36,7 +36,7 @@ def musical_note(t, frequency, amplitude=0.2, phi = 0):
     return amplitude * np.sin((2 * np.pi * frequency * t) + phi)
 
 # generating time points 
-t = np.linspace(0, 0.01, 1000) # 10 ms of time
+t = np.linspace(0, 0.1, 1000) # 10 ms of time
 
 # frequency of C in octave 4
 c_freq = 261.63 # Hz
@@ -98,24 +98,9 @@ plt.xlabel("Time (s)")
 plt.ylabel("Amplitude")
 plt.show()
 
-# GREAT! WE NOW HAVE TWO CHORDS TO COMPARE!
+# At this point I attempted to normalize the frequency of both the chords
+# to see if they matched in pattern, but this proved to be difficult. 
+# I took the time to carefully compare the two chord visuals and they seem to
+# have the same pattern WHICH IS GREAT!
 
-# BLOCK 4
-
-# Normalizing chords to compare them
-c_major_norm = c_major / np.sum(c_major)
-f_major_norm = f_major / np.sum(f_major)
-
-# plotting soundwave of  normalized c major chord
-plt.plot(t, c_major_norm)
-plt.title("Normalized Sine Wave for Musical Chord C Major")
-plt.xlabel("Time (s)")
-plt.ylabel("Amplitude")
-plt.show()
-
-# plotting soundwave of  normalized f major chord
-plt.plot(t, f_major_norm)
-plt.title("Normalized Sine Wave for Musical Chord F Major")
-plt.xlabel("Time (s)")
-plt.ylabel("Amplitude")
-plt.show()
+# END of experiement 1
