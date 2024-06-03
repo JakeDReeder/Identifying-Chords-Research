@@ -103,4 +103,54 @@ plt.show()
 # I took the time to carefully compare the two chord visuals and they seem to
 # have the same pattern WHICH IS GREAT!
 
+# BLOCK 4
+# for kicks and giggles, lets spice things up by comparing two minor 7 chords
+
+t = np.linspace(0, 0.05, 1000) # 10 ms of time
+
+# a E minor 7 chord contains E + G + B + D
+e_freq = 329.63 # frequency of E in octave 4 in Hz
+g_freq = 392.0 # frequency of G in octave 4 in Hz
+b_freq = 493.88 # frequency of B in octave 4 in Hz
+d_freq = 587.33 # frequency of D in octave 5 in Hz
+
+e = musical_note(t, e_freq)
+g = musical_note(t, g_freq)
+b = musical_note(t, b_freq)
+d = musical_note(t, d_freq)
+
+e_min7 = e + g + b + d
+
+# plotting soundwave of e minor 7 chord
+plt.plot(t, e_min7)
+plt.title("Sine Wave for Musical Chord E minor 7")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.show()
+
+# adjust time to adjust for difference in frequency
+t = np.linspace(0, 0.075, 1000) # 10 ms of time
+
+# a A minor 7 chord contains A + C + E + G
+a_freq = 220.0 # frequency of A in octave 3 in Hz
+c_freq = 261.63 # frequency of C in octave 4 in Hz
+
+a = musical_note(t, a_freq)
+c = musical_note(t, c_freq)
+
+a_min7 = a + c + e + g
+
+# plotting soundwave of a minor 7 chord
+plt.plot(t, a_min7)
+plt.title("Sine Wave for Musical Chord A minor 7")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.show()
+
+# Seems these two graphs match the same pattern as well!!!
+
+# CONCLUSION: 
+# Since chords of the same types have the same pattern when graphed as sin waves, I believe it can be assumed
+# that a Neural Network may be able to learn these patterns and be able to identify chord types! We shall see!
+
 # END of experiement 1
